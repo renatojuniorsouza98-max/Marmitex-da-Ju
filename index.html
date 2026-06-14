@@ -1,19 +1,133 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Marmitex da Ju</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#f5f5f5;
+margin:0;
+padding:0;
+}
+
+header{
+background:#ff7a00;
+color:white;
+padding:20px;
+text-align:center;
+}
+
+.container{
+max-width:600px;
+margin:auto;
+padding:15px;
+}
+
+.cardapio{
+width:100%;
+border-radius:12px;
+margin-bottom:20px;
+}
+
+.formulario{
+background:white;
+padding:20px;
+border-radius:12px;
+box-shadow:0 2px 10px rgba(0,0,0,.1);
+}
+
+input, textarea{
+width:100%;
+padding:12px;
+margin-top:10px;
+margin-bottom:10px;
+border:1px solid #ccc;
+border-radius:8px;
+box-sizing:border-box;
+}
+
+button{
+width:100%;
+padding:15px;
+background:#25D366;
+color:white;
+border:none;
+border-radius:8px;
+font-size:18px;
+font-weight:bold;
+}
+
+.aviso{
+text-align:center;
+margin-top:10px;
+color:#555;
+}
+</style>
 </head>
+
 <body>
 
-<h1>Marmitex da Ju</h1>
+<header>
+<h1>🍛 Marmitex da Ju</h1>
+<p>Marmitas feitas com amor e carinho</p>
+</header>
 
-<p>Peça sua marmita!</p>
+<div class="container">
 
-<a href="https://wa.me/5533999843682">
-<button>Fazer Pedido</button>
-</a>
+<img src="cardapio.jpg" class="cardapio" alt="Cardápio do dia">
+
+<div class="formulario">
+
+<h2>Faça seu pedido</h2>
+
+<input type="text" id="nome" placeholder="Nome">
+
+<input type="tel" id="telefone" placeholder="Telefone">
+
+<input type="text" id="endereco" placeholder="Endereço em Pinheiros">
+
+<textarea id="pedido" rows="5" placeholder="Descreva seu pedido"></textarea>
+
+<textarea id="obs" rows="3" placeholder="Observações (opcional)"></textarea>
+
+<button onclick="enviarPedido()">
+Enviar Pedido
+</button>
+
+<p class="aviso">
+Pagamento realizado na entrega.
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+function enviarPedido(){
+
+const nome=document.getElementById('nome').value;
+const telefone=document.getElementById('telefone').value;
+const endereco=document.getElementById('endereco').value;
+const pedido=document.getElementById('pedido').value;
+const obs=document.getElementById('obs').value;
+
+const msg=
+`Olá! Gostaria de fazer um pedido.%0A%0A`+
+`Nome: ${nome}%0A`+
+`Telefone: ${telefone}%0A`+
+`Endereço: ${endereco}%0A`+
+`Pedido: ${pedido}%0A`+
+`Observações: ${obs}%0A%0A`+
+`Pagamento na entrega.`;
+
+window.open(`https://wa.me/5533999843682?text=${msg}`);
+}
+
+</script>
 
 </body>
 </html>
